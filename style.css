@@ -1,6 +1,6 @@
 /* inside your style.css there should only be classes .class and IDs #id */
 
-.container-bg {
+.bg {
     background-color: #f2f2f2;
     background-image: url(./media/container_bg.png);
     background-size: cover;
@@ -10,7 +10,7 @@
     height: 100vh;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     font-size: 20px;
-    letter-spacing: 0.8px;
+    
 }
 
 .logo-container {
@@ -35,36 +35,30 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    width: 64vw;
-    margin: 40px auto;
-    /* border: 1px solid darkblue; */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cards-container .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 160px;
-    height: 280px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(105, 105, 105, 0.3);
 }
 .cards-container .card .cardimg {
     background-color: rgb(208, 208, 208);
     width: 160px;
-    height: 156px;
+    height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: hidden;
-}
-.cards-container .card .cardimg img {
-    width: 100%;
-    height: auto;
     object-fit: contain;
-    margin-bottom: 20px;
-    overflow: hidden;
+
 }
 
 .cards-container .card .cardinf {
@@ -75,18 +69,21 @@
     justify-content: center;
     padding: 10px;
     margin: auto;
-    width: 80%;
+    width: 90%;
+    height: 100px;
 }
 
 .cards-container .card .cardinf .pokemon-index { 
     font-size: 0.8rem;
-    color: #696969;
+ 
+    color: #2181dc;
+    text-shadow: 0 0.8px 0.8px rgba(0, 0, 0, 0.2);
 }   
 .cards-container .card .cardinf .pokemon-name {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 4px 0;
-
+    max-width: 160px;
 }
 .cards-container .card .cardinf .pokemon-type {
     display: flex;
@@ -96,9 +93,8 @@
     color: #555;
     margin: 4px 0;
 }
-.cards-container .card .cardinf .pokemon-type .strong,
-.cards-container .card .cardinf .pokemon-type .weak {
-    background-color: #424242;
+.cards-container .card .cardinf .pokemon-type .type {
+    background-color: #878787;
     padding: 4px 8px;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(105, 105, 105, 0.3);
