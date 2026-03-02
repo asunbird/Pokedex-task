@@ -5,7 +5,7 @@
     background-image: url(./media/container_bg.png);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     width: 100vw;
     height: 100vh;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -21,12 +21,47 @@
     margin: 20px auto;
 }
 .logo-container #pokemon-logo {
-    width: 84vw;
+    width: 72vw;
+    position: absolute;
+    top: 20px;
+    /* Call the animation */
+    /* format: name | duration | timing-function | fill-mode */
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+/* Define the #pokemon-logo Animation */
+@keyframes slideInFromLeft {
+    0% {
+        /* Where the logo starts when the page just loads */
+        transform: translateX(-100vw); /* Pushes it completely off-screen to the left */
+        opacity: 0; /* Optional: Makes it invisible at the start for a fade-in effect */
+    }
+    100% {
+        /* Where the logo ends up */
+        transform: translateX(0); /* Settles into its normal position */
+        opacity: 1; /* Fully visible */
+    }
 }
 
 .logo-container #pokeball {
-    width: 14vw;
-    margin-top: -180px;
+    width: 10vw;
+    position: absolute;
+    top: 220px;
+    /* Call the animation */
+    /* format: name | duration | timing-function | fill-mode */
+    animation: slideInFromTop 1s ease-out forwards;
+}
+/* Define the #pokeball Animation */
+@keyframes slideInFromTop {
+    0% {
+        /* Where the logo starts when the page just loads */
+        transform: translateY(-100vh); /* Pushes it completely off-screen to the top */
+        opacity: 0; /* Optional: Makes it invisible at the start for a fade-in effect */
+    }
+    100% {
+        /* Where the logo ends up */
+        transform: translateY(0); /* Settles into its normal position */
+        opacity: 1; /* Fully visible */
+    }
 }
 
 
@@ -36,7 +71,7 @@
     justify-content: center;
     gap: 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 400px auto 0 auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
