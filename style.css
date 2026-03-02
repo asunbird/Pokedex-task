@@ -22,8 +22,6 @@
 }
 .logo-container #pokemon-logo {
     width: 72vw;
-    position: absolute;
-    top: 20px;
     /* Call the animation */
     /* format: name | duration | timing-function | fill-mode */
     animation: slideInFromLeft 1s ease-out forwards;
@@ -44,8 +42,7 @@
 
 .logo-container #pokeball {
     width: 10vw;
-    position: absolute;
-    top: 220px;
+    margin-top: -150px;
     /* Call the animation */
     /* format: name | duration | timing-function | fill-mode */
     animation: slideInFromTop 1s ease-out forwards;
@@ -71,7 +68,7 @@
     justify-content: center;
     gap: 20px;
     max-width: 800px;
-    margin: 400px auto 0 auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
