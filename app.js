@@ -77,15 +77,41 @@ pokemonsArr.forEach(pokemon => {
     // Create a div for the Pokémon type with the class "pokemon-type", showing the Pokémon's type(s) joined by a comma.
     const pokemonType = document.createElement("div");
     pokemonType.classList.add("pokemon-type");
+
+    // Define an array of type-color pairs to determine the color based on the Pokémon's type.
+    let typeColorArr = [
+        {type: "Grass", color: "#89dd65"}, 
+        {type: "Poison", color: "#a33ea1"},
+        {type: "Fire", color: "#f08030"},
+        {type: "Bug", color: "#587c14"},
+        {type: "Normal", color: "#949393"},
+        {type: "Electric", color: "#ebdb2a"},
+        {type: "Fairy", color: "#f59dc3"},
+        {type: "Ground", color: "#b59543"},
+        {type: "Water", color: "#368ecd"},
+        {type: "Ice", color: "#82dde2"},
+        {type: "Fighting", color: "#953b1b"},
+        {type: "Rock", color: "#a08b23"},
+        {type: "Psychic", color: "#ef43ad"},
+        {type: "Ghost", color: "#5a3f90"},
+        {type: "Dragon", color: "#f15816"},
+        {type: "Dark", color: "#3e3027"},
+        {type: "Steel", color: "#a0a6a5"},
+        {type: "Flying", color: "#569bae"}
+    ];
+
     // Loop through each type in the pokemon.type array
     pokemon.type.forEach(type => {
         const typeSpan = document.createElement('span'); // Create a new span
         typeSpan.textContent = type; // Set its text to the type name
-        typeSpan.classList.add("type"); // First type gets 'strong'
+        typeSpan.classList.add("type"); // Add a class for styling
+
+        // Set the background color for every type, regardless of how many there are
+        typeSpan.style.backgroundColor = typeColorArr.find(t => t.type === type)?.color || "#878787";
+        
         pokemonType.appendChild(typeSpan); // Add it to the pokemon-type container
     });
-
-
+    
 
     // Creating the elements doesn't automatically put them on the screen or connect them. appendChild is the glue.
     // First, it glues the index and the name/type inside the cardInfo container.
