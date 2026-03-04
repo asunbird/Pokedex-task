@@ -6,23 +6,20 @@ let pokemonsArr = [
     { thumbnail: "./media/001.png", id: 1, name: "Bulbasaur", type: ["Grass", "Poison"] },
     { thumbnail: "./media/002.png", id: 2, name: "Charmander", type: ["Fire"] },
     { thumbnail: "./media/003.png", id: 3, name: "Caterpie", type: ["Bug"] },
-
     { thumbnail: "./media/004.png", id: 25, name: "Kakuna", type: ["Bug", "Poison"] },
     { thumbnail: "./media/005.png", id: 39, name: "Rattata", type: ["Normal"] },
     { thumbnail: "./media/006.png", id: 133, name: "Pikachu", type: ["Electric"] },
-
     { thumbnail: "./media/007.png", id: 132, name: "Vulpix", type: ["Fire"] },
     { thumbnail: "./media/008.png", id: 151, name: "Jigglypuff", type: ["Normal", "Fairy"] },          
     { thumbnail: "./media/009.png", id: 132, name: "Diglett", type: ["Ground"] },
-
     { thumbnail: "./media/010.png", id: 132, name: "Meowth", type: ["Normal"] },
     { thumbnail: "./media/011.png", id: 132, name: "Tentacruel", type: ["Water", "Poison"] },
     { thumbnail: "./media/012.png", id: 132, name: "Ponyta", type: ["Fire"] },
-
     { thumbnail: "./media/013.png", id: 132, name: "Cloyster", type: ["Water", "Ice"] },
     { thumbnail: "./media/014.png", id: 132, name: "Cubone", type: ["Ground"] },
     { thumbnail: "./media/015.png", id: 132, name: "Eevee", type: ["Normal"] },
     { thumbnail: "./media/016.png", id: 132, name: "Porygon", type: ["Normal"] },  
+
 ];
 
 // 2. Select the DOM container
@@ -57,6 +54,7 @@ pokemonsArr.forEach(pokemon => {
     // For example, it sets the image's source (img.src = pokemon.thumbnail)
     img.src = pokemon.thumbnail;
     img.alt = pokemon.name;
+    img.loading = "lazy";
 
     // Create a div for the Pokémon information with the class "cardinf".
     const cardInfo = document.createElement("div");

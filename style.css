@@ -12,19 +12,26 @@
     font-size: 20px;
     
 }
-
+/* --- 1. The Flexbox Container for Logo --- */
 .logo-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    padding: 20px 40px;
     margin: 20px auto;
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+    width: 100%;
+    position: relative; /* Needed for absolute positioning of the pokeball */
 }
 .logo-container #pokemon-logo {
     width: 72vw;
+    max-width: 2000px;
     /* Call the animation */
     /* format: name | duration | timing-function | fill-mode */
     animation: slideInFromLeft 1s ease-out forwards;
+    position: relative;
+    top: 2vw;
 }
 /* Define the #pokemon-logo Animation */
 @keyframes slideInFromLeft {
@@ -42,10 +49,12 @@
 
 .logo-container #pokeball {
     width: 10vw;
-    margin-top: -150px;
+    max-width: 300px;
     /* Call the animation */
     /* format: name | duration | timing-function | fill-mode */
     animation: slideInFromTop 1s ease-out forwards;
+    position: relative; 
+    top: -11vw;
 }
 /* Define the #pokeball Animation */
 @keyframes slideInFromTop {
@@ -67,6 +76,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    width: 60vw;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -149,4 +159,25 @@
     box-shadow: 0 1px 2px rgba(105, 105, 105, 0.3);
     font-size: 0.8rem;
     color: #ffffff;
+}
+
+/* --- MEDIA QUERY --- */
+
+/* --- Tablet (Under 900px) --- */
+@media (max-width: 900px) {
+    .logo-container { padding: 15px 20px; }
+
+    #pokemon-logo { width: 50vw; max-width: 300px; }
+
+    #pokeball { width: 90px; }
+}
+
+
+/* --- Mobile (Under 600px) --- */
+@media (max-width: 600px) {
+    .logo-container { padding: 10px 10px; }
+
+    #pokemon-logo { width: 65vw; max-width: 250px; }
+
+    #pokeball { width: 60px; }
 }
