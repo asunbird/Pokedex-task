@@ -119,10 +119,31 @@ pokemonsArr.forEach(pokemon => {
     cardInfo.appendChild(pokemonName);
     cardInfo.appendChild(pokemonType);
 
-    // Then, it glues the image and the cardInfo container inside the main card.
-    // Append the image and card info to the card
-    card.appendChild(img);
-    card.appendChild(cardInfo);
+    // Create a div for the card's inner content with the class "card-inner" to hold the image and card info.
+    // This is an additional wrapper that can be used for a card reverse animation.
+    const cardInner = document.createElement("div");
+    cardInner.classList.add("card-inner");
+    card.appendChild(cardInner);
+
+    // Append the image and card info to the card inner container
+    // Create a div containers for card front and card back information.
+    const cardFront = document.createElement("div");
+    cardFront.classList.add("card-front");
+    cardInner.appendChild(cardFront);
+
+    const cardBack = document.createElement("div");
+    cardBack.classList.add("card-back");
+    cardInner.appendChild(cardBack);
+
+    // Append the image and card info to the card front container
+    cardFront.appendChild(img);
+    cardFront.appendChild(cardInfo);
+
+    // The card back can be used for additional information or a different design when the card is flipped.
+    const backContent = document.createElement("div");
+    backContent.classList.add("back-content");
+    backContent.innerHTML = `<h2>${pokemon.name}</h2><p>Type: ${pokemon.type.join(", ")}</p>`;
+    cardBack.appendChild(backContent);
 
     // Finally, it takes the fully assembled card and glues it into the cardsContainer that we found at the very beginning.
     // Append the card to the container
