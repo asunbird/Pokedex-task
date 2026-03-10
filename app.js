@@ -157,7 +157,17 @@ pokemonsArr.forEach(pokemon => {
 const cards = document.querySelectorAll(".card-inner");
 
 function flipCard() {
-    this.classList.toggle("flip");
+    // If the card is already flipped, remove the flip class to flip it back.
+    if (this.classList.contains("flip")) {
+        this.classList.remove("flip"); 
+    } else {
+        // If the card is not flipped, add the flip class to flip it.
+        this.classList.toggle("flip");
+        // After 8 seconds, remove the flip class to flip the card back automatically.
+        setTimeout(() => {
+            this.classList.remove("flip");
+        }, 8000);
+    }
 }
 
 cards.forEach((card) => card.addEventListener("click", flipCard)); 
