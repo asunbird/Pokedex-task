@@ -127,6 +127,9 @@ pokemonsArr.forEach(pokemon => {
     // Finally, it takes the fully assembled card and glues it into the cardsContainer that we found at the very beginning.
     // Append the card to the container
     cardsContainer.appendChild(card);
+
+    // After all the elements are created add the Pokémon's ID to the card li element
+    card.id = formattedId;
 });
 
 //      
