@@ -153,4 +153,13 @@ pokemonsArr.forEach(pokemon => {
     card.id = formattedId;
 });
 
-//      
+// Add event listeners for card flip    
+const cards = document.querySelectorAll(".card-inner");
+
+function flipCard() {
+    this.classList.toggle("flip");
+}
+
+cards.forEach((card) => card.addEventListener("click", flipCard)); 
+// When a card is clicked, it toggles the "flip" class on the card's inner container, 
+// which triggers the CSS animation to flip the card and show the back side.
