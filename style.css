@@ -139,16 +139,22 @@
    cursor: pointer;
    transform: rotateX(0deg);
     /* Starts face up */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
 }
+
+/* --- 5. The Card Back Content --- */
 /* Style the back side */
 .card-back {
-    background-color: #f08030;
-    color: white;
+    background-color: #f6d5bd;
     transform: rotateY(180deg); 
     /* Starts face down */
     cursor: pointer;
     display: flex;
-    
+    align-items: center;
+    justify-content: flex-end;
     flex-direction: column;
     position: absolute;
     right: 0;
@@ -161,7 +167,18 @@
     align-items: center;
     justify-content: center;
 }
-.card-back .back-content h2 { 
+.card-back .back-button-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.card-back .back-button-name h2 { 
     margin: 20px 0 10px 0; 
     font-size: 1.4rem;
     font-weight: bold;
@@ -170,7 +187,7 @@
 .card-back .back-content p { 
     margin: 0 20px;
     background-color: #ffffff;
-    padding: 4px 8px;
+    padding: 8px;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(105, 105, 105, 0.3);
     font-size: 0.8rem;
@@ -178,9 +195,27 @@
     max-width: 160px;
 }
 
+/* Card Buttons for Flip and Battle */
+/* Style all buttons in card container */
+.cards-container .card .card-inner button {
+    display: inline-block;
+    margin: 4px auto;
+    background-color: #2181dc;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: #0c4983 1px solid;
+    box-shadow: 0 2px 2px rgba(3, 46, 115, 0.292);
+    font-size: 1rem;
+    color: #ffffff;
+}
+.cards-container .card .card-inner .front-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
 
-
-/* --- 4. The Card Image and Info --- */
+/* --- 4. The Card Front Image and Info --- */
 .cards-container .card .cardimg {
     background-color: rgb(208, 208, 208);
     width: 160px;
@@ -203,9 +238,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    padding: 10px;
-    margin: auto;
+    justify-content: flex-start;
+    padding: 8px;
+    margin: 0;
     width: 90%;
     height: 100px;
 }
@@ -221,15 +256,15 @@
     margin: 4px 0;
     max-width: 160px;
 }
-.cards-container .card .cardinf .pokemon-type {
+.cards-container .card .card-inner .pokemon-type {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 8px;
     font-size: 0.9rem;
     color: #555;
-    margin: 4px 0;
+    margin: 16px 0;
 }
-.cards-container .card .cardinf .pokemon-type .type {
+.cards-container .card .card-inner .pokemon-type .type {
     background-color: #878787;
     padding: 4px 8px;
     border-radius: 4px;
@@ -237,6 +272,7 @@
     font-size: 0.8rem;
     color: #ffffff;
 }
+
 
 /* --- MEDIA QUERY --- */
 
