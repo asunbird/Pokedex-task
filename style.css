@@ -93,17 +93,15 @@
     box-shadow: 0 1px 2px rgba(105, 105, 105, 0.3);
     /* to clip child elements (scaled image) that overflow */
     overflow: hidden;
-    cursor: pointer;
-
     /* Add the transition property here so the browser knows to animate the transform */
-    /* transition: transform 0.3s ease-in-out; */
+    transition: transform 0.3s ease-in-out;
 
     /* Crucial for 3D */
     perspective: 1000px; 
     perspective-origin: center;
 }
 /* Scales the card up by 3% */
-/*  .cards-container .card:hover { transform: scale(1.03); }  */
+.cards-container .card:hover { transform: scale(1.03); } 
 
 /* --- 3. The Card Flip --- */
 .cards-container .card .card-inner {
@@ -136,7 +134,6 @@
 
 /* Style the front side */
 .card-front { 
-   cursor: pointer;
    transform: rotateX(0deg);
     /* Starts face up */
     display: flex;
@@ -151,7 +148,6 @@
     background-color: #f6d5bd;
     transform: rotateY(180deg); 
     /* Starts face down */
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -207,6 +203,8 @@
     box-shadow: 0 2px 2px rgba(3, 46, 115, 0.292);
     font-size: 1rem;
     color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.1s linear;
 }
 .cards-container .card .card-inner .front-buttons {
     display: flex;

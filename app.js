@@ -145,12 +145,22 @@ pokemonsArr.forEach(pokemon => {
     // Create a button for flipping the card (on the front side)
     const flipButton = document.createElement("button");
     flipButton.textContent = "Profile";
+    flipButton.classList.add("flip-btn"); // Add a class for flip buttons
     buttonsContainer.appendChild(flipButton);
+    // attach click listener now that cardInner exists
+    flipButton.addEventListener("click", () => {
+        flipCard(cardInner);
+        // change color animation on click
+        flipButton.style.backgroundColor = "#0c4983";
+        setTimeout(() => {
+            flipButton.style.backgroundColor = "#2181dc";
+        }, 1000);
+    });
 
     // Create a button for battling (extension: for battle) on the front side
     const battleButton = document.createElement("button");
     battleButton.textContent = "Battle!";
-    buttonsContainer.appendChild(battleButton);
+    buttonsContainer.appendChild(battleButton);  // battle logic can use similar pattern later
 
     // ... 5. The Card Back Content: ...
     // The CARD BACK can be used for additional information when the card is flipped.
@@ -173,7 +183,16 @@ pokemonsArr.forEach(pokemon => {
     // Create a button for flipping-back the card (on the back side)
     const flipBackButton = document.createElement("button");
     flipBackButton.textContent = "Pokémon";
+    flipBackButton.classList.add("flip-btn"); // Add a class for flip buttons
     backButtonNameContainer.appendChild(flipBackButton);
+    flipBackButton.addEventListener("click", () => {
+        flipCard(cardInner);
+        // change color animation on click
+        flipBackButton.style.backgroundColor = "#0c4983";
+        setTimeout(() => {
+            flipBackButton.style.backgroundColor = "#2181dc";
+        }, 1000);
+    });
 
 
 
@@ -184,30 +203,30 @@ pokemonsArr.forEach(pokemon => {
     card.id = formattedId;
 });
 
-// Add event listeners for card flip    
-const cards = document.querySelectorAll(".card-inner");
-
-function flipCard() {
+function flipCard(cardInner) {
     // If the card is already flipped, remove the flip class to flip it back.
-    if (this.classList.contains("flip")) {
-        this.classList.remove("flip"); 
+    if (cardInner.classList.contains("flip")) {
+        cardInner.classList.remove("flip");
+        console.log("Card flipped back.");
     } else {
         // If the card is not flipped, add the flip class to flip it.
-        this.classList.toggle("flip");
+        cardInner.classList.add("flip");
+        console.log("Card flipped.");
+
         // After 8 seconds, remove the flip class to flip the card back automatically.
         setTimeout(() => {
-            this.classList.remove("flip");
+            cardInner.classList.remove("flip");
+            console.log("Card flipped back after 8 seconds.");
         }, 8000);
     }
-}
-
-cards.forEach((card) => card.addEventListener("click", flipCard)); 
+}  // listeners now attached during card construction below
+ 
 // When a card is clicked, it toggles the "flip" class on the card's inner container, 
 // which triggers the CSS animation to flip the card and show the back side.
 
 
 // ...... Simple JS Battle Logic ......
-// With just the core stats (name, level, maxHp, currentHp, attackPower, defensePower, speed) 
+// With just the core stats (name, speed, level, maxHp, currentHp, attackPower, defensePower) 
 // we can create a very basic battle system.
 
 // 1. Check Speed: The script compares PokemonA.speed vs PokemonB.speed. The higher number goes first.
